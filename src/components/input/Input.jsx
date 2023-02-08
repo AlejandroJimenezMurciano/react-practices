@@ -4,14 +4,17 @@ const Input = () => {
 	const [something, setSomething] = useState('');
 	return (
 		<>
-			<input onSubmit={() => write(something, setSomething)}></input>
-			<h2></h2>
+			<input value={something} onChange={(e)=> write(e.target.value,setSomething)}/>
+			<h2>{something}</h2>
 		</>
 	);
 };
 
-let setSomething = '';
-
-const write = setSomething => {};
+const write = (something, setSomething) => {
+	if(something === 'reset'){
+		setSomething('')
+	}
+	else setSomething(something);
+};
 
 export default Input;

@@ -12,13 +12,13 @@ const Counter = () => {
 };
 
 const increment = (count, setCount) => {
-	if (count > 10) setCount(0);
-	else setCount + 1; //Aquí en este increment esta lo que vale count y cambiamos lo que es setCount + 1 para que vaya incrementando de 1 en 1
+	if (count >= 10) setCount(0);
+	else setCount (count + 1); //Aquí en este increment esta lo que vale count y cambiamos lo que es setCount + 1 para que vaya incrementando de 1 en 1
 };
 
 const decrement = (count, setCount) => {
-	if (count < 0) setCount(10);
-	else setCount - 1;
+	if (count <=0) setCount(10);
+	else setCount (count- 1);
 };
 
 export default Counter;

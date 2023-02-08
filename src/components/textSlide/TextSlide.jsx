@@ -1,24 +1,30 @@
+import { useState } from "react";
+import Title from "../title/title";
+import Subtitle from "../subtitle/Subtitle";
+
+
 const TextSlide = () => {
-	const [count, setCount] = useState(INFO[0]);
+	const [count, setCount] = useState(0)
 	return (
 		<>
 			<button onClick={() => previous(count, setCount)}>Previous</button>
-			<h1>a</h1>
-			<p>a</p>
+			<Title content={INFO[count].title}/>
+			<Subtitle content={INFO[count].description}/>
 			<button onClick={() => next(count, setCount)}>Next</button>
 		</>
 	);
 };
 
-const next = (count, setCount) => {
-	setCount(count + 1);
-};
-
 const previous = (count, setCount) => {
-	setCount(count - 1);
+	if(count===0)setCount(INFO.length-1)
+	else setCount(count -1);
 };
 
-const show = (next, previous) => {};
+const next = (count, setCount) => {
+	if(count=== INFO.length -1)setCount(0)
+	else setCount(count + 1)
+};
+
 
 const INFO = [
 	{
